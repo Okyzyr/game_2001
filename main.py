@@ -9,7 +9,7 @@ def game_2001():
 
         rzut = roll("2D6")
         if rzut == 7 and turn != 1:
-            player1 = player1 % 7
+            player1 = player1 // 7
             print("wyrzucono 7, wynik gracza dzieli się przez 7")
             print(f"P1 rzucił {rzut}. Stan punktów: {player1}", end="\n")
             input("Kolejny gracz wciska enter.\n")
@@ -25,7 +25,7 @@ def game_2001():
 
         rzut = roll("2D6")
         if rzut == 7 and turn != 1:
-            player2 = player2 % 7
+            player2 = player2 // 7
             print("wyrzucono 7, wynik gracza dzieli się przez 7")
             print(f"P2 rzucił {rzut}. Stan punktów: {player2}", end="\n")
             input("Kolejny gracz wciska enter.\n")

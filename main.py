@@ -41,7 +41,7 @@ def game_2001():
 
 
         turn += 1
-    return player1, player2
+    return f"Koniec gry. Wyniki:\nGracz 1: {player1}, Gracz 2:{player2}"
 
 
 print(game_2001())

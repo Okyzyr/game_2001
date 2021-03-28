@@ -1,19 +1,19 @@
 from dice_roll import roll, check
+from random import randint
+
 
 def game_2001():
     player1 = 0
     player2 = 0
-    wynik = 1
+    dice_types = ["D3", "D4", "D6", "D8", "D10", "D12", "D20", "D100"]
     turn = 1
-    dice = ""
-    temp = []
     input("Wciśnij Enter aby rozpocząć grę\n")
-
     while player1 < 2001 and player2 < 2001:
         temp = []
         while len(temp) < 2:
             dice = input("Dostępne opcje: D3, D4, D6, D8, D10, D12, D20, D100.\n"
-                         f"{len(temp)+1}/2 - Spośród dostępnych opcji wybierz pierwszą kość jaką kością chcesz rzucić: \n")
+                         f"{len(temp)+1}/2 - Spośród dostępnych opcji wybierz "
+                         f"pierwszą kość jaką kością chcesz rzucić: \n")
             dice = dice.upper()
             if check(dice):
                 temp.append(roll(dice))
@@ -33,7 +33,7 @@ def game_2001():
             player1 += rzut
             print(f"Gracz rzucił {temp[0]} oraz {temp[1]} = {rzut}. Stan punktów: {player1}", end="\n\n")
 
-        rzut = roll("2D6")
+        rzut = roll(dice_types[randint(0, 7)]) + roll(dice_types[randint(0, 7)])
         if rzut == 7 and turn != 1:
             player2 = player2 // 7
             print("wyrzucono 7, wynik gracza dzieli się przez 7")
